@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-class Paciente_DAO extends Model {
+class Paciente_DAO extends CI_Model {
 
     private $db;
 
     public function Paciente_DAO(){
-        parent::Model();
+        parent::__construct();
         echo "aqui";
         $this->db = $this->load->database("nutridiet");
         echo "chamou";

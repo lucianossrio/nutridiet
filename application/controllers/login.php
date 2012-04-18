@@ -26,6 +26,8 @@ class Login extends CI_Controller {
         error_reporting(E_ALL);
         if ($this->session->userdata('logado') == false) {
             $this->doLogin();
+        } else {
+            echo 'esta logado';
         }
     }
 
@@ -41,7 +43,7 @@ class Login extends CI_Controller {
 
             $this->load->model('Paciente_DAO');
             echo 1;
-            $Paciente = $this->PacienteDAO->doLogin($email, $senha);
+            $Paciente = $this->Paciente_DAO->doLogin($email, $senha);
 
             echo "aeee";
 
@@ -50,6 +52,10 @@ class Login extends CI_Controller {
             $this->session->set_userdata('paciente', $paciente);
             $this->session->set_userdata('logado', true);
         }
+    }
+
+    public function doLogoff(){
+        $this->session->sess_destroy();
     }
 
 }
