@@ -21,7 +21,7 @@ class Login extends CI_Controller {
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
     public function index() {
-        parent::Controller();
+        parent::__construct();
         $this->load->helper('url', 'form');
         error_reporting(E_ALL);
         if ($this->session->userdata('logado') == false) {
