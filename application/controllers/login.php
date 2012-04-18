@@ -22,26 +22,28 @@ class Login extends CI_Controller {
      */
     public function index() {
         parent::Controller();
-        $this->load->library('session');
         $this->load->helper('url', 'form');
+        error_reporting(E_ALL);
         if ($this->session->userdata('logado') == false) {
-            $this->login();
+            $this->doLogin();
         }
     }
 
     public function doLogin() {
-        echo "aaaa";
         if (!$_POST) {
-            $this->load->view('login', array());
+            $this->load->view('login');
         } else {
 
             $email = $this->input->post('email', true);
             $senha = $this->input->post('senha', true);
 
-            $this->load->model('pacienteDAO');
-            $Paciente = $this->PacienteDAO->login($email, $senha);
+            echo $email ."<br>".$senha;
 
+            $this->load->model('Paciente_DAO');
+            echo 1;
+            $Paciente = $this->PacienteDAO->doLogin($email, $senha);
 
+            echo "aeee";
 
             echo "<pre>" . print_r($Paciente, true) . "</pre>";
 

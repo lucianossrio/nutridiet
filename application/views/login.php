@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -70,7 +69,7 @@
 	<h1>Welcome to Nutridiet</h1>
 
 	<div id="body">
-		<form name="frmLogin" method="POST" action="<? echo site_url('login/login'); ?>" >
+		<form name="frmLogin" method="POST" action='' >
 
 		<p>Email:</p>
                 <code><input type="text" name="email" id="email" /></code>
