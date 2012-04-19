@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Bem Vindo ao NutriDiet</title>
 
 	<style type="text/css">
 
@@ -75,6 +75,7 @@
 
 	#entrar{
 		color: #fff;
+		cursor: pointer;
 		font-size: 12px;
 		background-color: #49AFCD;
 		background-image: -webkit-linear-gradient(top, #5BC0DE, #2F96B4);
@@ -88,12 +89,21 @@
 		right: -1;
 	}
 
+	#entrar:hover{
+		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+  		color: #ffffff;
+	}
+
+	#entrar:active{
+		color: rgba(255, 255, 255, 0.75);
+	}
+
 	</style>
 </head>
 <body>
 
 <div id="container">
-	<h1>Bem vindo ao Nutridiet</h1>
+	<h1>Bem vindo ao NutriDiet</h1>
 
 	<div id="conteudo">
 		<form name="frmLogin" method="POST" action='' >
