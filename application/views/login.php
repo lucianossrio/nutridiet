@@ -5,47 +5,38 @@
 
 	<style type="text/css">
 
-	::selection{ background-color: #E13300; color: white; }
-	::moz-selection{ background-color: #E13300; color: white; }
-	::webkit-selection{ background-color: #E13300; color: white; }
 
 	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
+		background-color: #315577;
 		color: #4F5155;
+		font: 13px/20px normal Helvetica, Arial, sans-serif;
+		margin: 40px;
+		position: relative;
 	}
 
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
+	#container{
+		background-color: #FFF;
+		border: 1px solid #D0D0D0;
+		left: 405;
+		position: absolute;
+		margin: 10px;
+		top: 130;
+		width: 325px;
+		-webkit-box-shadow: 0 0 8px #D0D0D0;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
 	}
 
-	h1 {
-		color: #444;
+	#container h1 {
+		color: #315577;
 		background-color: transparent;
 		border-bottom: 1px solid #D0D0D0;
 		font-size: 19px;
 		font-weight: normal;
 		margin: 0 0 14px 0;
 		padding: 14px 15px 10px 15px;
-	}
-
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
-
-	#body{
-		margin: 0 15px 0 15px;
-	}
+	}	
 	
 	p.footer{
 		text-align: right;
@@ -53,32 +44,67 @@
 		border-top: 1px solid #D0D0D0;
 		line-height: 32px;
 		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
+		margin: 0;
+	}
+
+	#conteudo{
+		margin-left:10px;
 	}
 	
-	#container{
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		-webkit-box-shadow: 0 0 8px #D0D0D0;
+	#conteudo span{
+		margin-right: 15px;
 	}
+
+	#conteudo #email{
+		margin-left: 6px;
+		margin-right:42	px;
+	}
+
+	#container #email,
+	#container #senha{
+		border-radius: 2px;
+		margin-bottom: 10px;
+		width: 180px;
+		height: 25px;
+	}
+
+	#container #senha{
+		margin-right: 0;
+	}
+
+
+	#entrar{
+		color: #fff;
+		font-size: 12px;
+		background-color: #49AFCD;
+		background-image: -webkit-linear-gradient(top, #5BC0DE, #2F96B4);
+		background-image: -o-linear-gradient(top, #5BC0DE, #2F96B4);
+		background-image: linear-gradient(top, #5BC0DE, #2F96B4);
+		background-repeat: repeat-x;
+		border-color: #2F96B4 #2F96B4 #1F6377;
+		border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+		-webkit-border-radius: 4px;
+		position: relative;
+		right: -1;
+	}
+
 	</style>
 </head>
 <body>
 
 <div id="container">
-	<h1>Welcome to Nutridiet</h1>
+	<h1>Bem vindo ao Nutridiet</h1>
 
-	<div id="body">
+	<div id="conteudo">
 		<form name="frmLogin" method="POST" action='' >
+			<span>Login:</span>
+			<input type="text" name="email" id="email" />
 
-		<p>Email:</p>
-                <code><input type="text" name="email" id="email" /></code>
+			<span>Senha:</span>
+	        <input type="password" name="senha" id="senha" />
 
-		<p>Senha:</p>
-                <code><input type="password" name="senha" id="senha" /></code>
-
-		<p><input type="submit" value="Entrar" /></p>
-                </form>
+			<input type="submit" value="Entrar" id="entrar" />
+        </form>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
