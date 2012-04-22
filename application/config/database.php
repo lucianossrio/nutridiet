@@ -48,7 +48,7 @@
 $active_group = 'nutridiet';
 $active_record = TRUE;
 
-$db['nutridiet']['hostname'] = '127.0.0.1';
+$db['nutridiet']['hostname'] = 'localhost';
 $db['nutridiet']['username'] = 'root';
 $db['nutridiet']['password'] = '';
 $db['nutridiet']['database'] = 'nutridiet';

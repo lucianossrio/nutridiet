@@ -22,40 +22,39 @@ class Login extends CI_Controller {
      */
     public function index() {
         parent::__construct();
-        $this->load->helper('url', 'form');
-        error_reporting(E_ALL);
         if ($this->session->userdata('logado') == false) {
             $this->doLogin();
         } else {
-            echo 'esta logado';
+            header('Location: '.base_url());
         }
     }
 
     public function doLogin() {
         if (!$_POST) {
-            $this->load->view('login');
+            $data['msg'] = '';
+            $this->load->view('login',$data);
         } else {
 
             $email = $this->input->post('email', true);
-            $senha = $this->input->post('senha', true);
-
-            echo $email ."<br>".$senha;
-
+            $senha = md5($this->input->post('senha', true));
             $this->load->model('Paciente_DAO');
-            echo 1;
-            $Paciente = $this->Paciente_DAO->doLogin($email, $senha);
+            $result = $this->Paciente_DAO->doLogin($email, $senha);
+            $Paciente =  $result[0];
 
-            echo "aeee";
-
-            echo "<pre>" . print_r($Paciente, true) . "</pre>";
-
-            $this->session->set_userdata('paciente', $paciente);
-            $this->session->set_userdata('logado', true);
+            if (is_object($Paciente)){
+                $this->session->set_userdata('paciente', $Paciente);
+                $this->session->set_userdata('logado', true);
+                header('Location: '.base_url());
+            } else {
+                $data['msg'] = 'Login ou senha inválidos';
+                $this->load->view('login',$data);
+            }
         }
     }
 
     public function doLogoff(){
         $this->session->sess_destroy();
+        header('Location: '.site_url('login'));
     }
 
 }

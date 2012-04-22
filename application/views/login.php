@@ -7,7 +7,7 @@
 
 
 	body {
-		background-color: #315577;
+		background-color: #A4FFA4;
 		color: #4F5155;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		margin: 40px;
@@ -17,10 +17,11 @@
 	#container{
 		background-color: #FFF;
 		border: 1px solid #D0D0D0;
-		left: 405;
+		left: 35%;
 		position: absolute;
-		margin: 10px;
-		top: 130;
+		margin-right:auto;
+                margin-left: auto;
+		top: 30%;
 		width: 325px;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 		-webkit-border-radius: 4px;
@@ -117,7 +118,7 @@
         </form>
 	</div>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
+	<p class="footer"><?php echo $msg; ?></p>
 </div>
 
 </body>
