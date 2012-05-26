@@ -42,6 +42,26 @@
                     prevText: 'Anterior'
 
                 });
+
+                var qtd_alimentos = 0;
+
+                $("#btn_add_alimento").live('click', function(){
+                    if ( $("#alimento").val() == "" ) {
+                        alert("Insira um alimento valido.");
+                    }else{
+                        var html = '<div class="alimento_' + qtd_alimentos + '">';
+                        html += '<input name="alimento[]" id="alimento_' + qtd_alimentos + '" type="text" value="" />';
+                        html += 'Quantidade: <input type="text" value="" name="quantidade[]" id="quantidade_' + qtd_alimentos + '"/>';
+                        html += 'Unidade: <select name="id_unidade_medida[]" id="id_unidade_medida_' + qtd_alimentos + '">'
+                        html += '<a id="alimento_' + qtd_alimentos + '" class="remove" href="#"><img src="<?php echo base_url('application/assets/images/remove.png'); ?>"/></a>';
+                        html += '</div>';
+                        $('#container_alimentos').append(html);
+                        qtd_alimentos++;
+                    }
+                });
+                $(".remove").live('click', function(){
+                    $('.' + this.id).remove();
+                });
             });
         </script>
 
@@ -55,26 +75,19 @@
                 Data: <input type="text" value="" name="data" id="data"/>
                 <br>Ingredientes:<br>
                 <fieldset border="1">
-                    Alimento: <input type="text" value="" name="alimento" />
-                    Quantidade: <input type="text" value="" name="quantidade" />
-                    Unidade: <select id="id_unidade_medida" name="id_unidade_medida">
-                        <?php
-                        foreach ($unidades as $unidade) {
-                            echo "<option value='" . $unidade['id_unidade_medida'] . "'>" . $unidade['unidade'] . "</option>";
-                        }
-                        ?>
-                    </select>
-                </fieldset><br>
-                <fieldset border="1">
-                    Alimento: <input type="text" value="" name="alimento2" />
-                    Quantidade: <input type="text" value="" name="quantidade2" />
-                    Unidade: <select id="id_unidade_medida" name="id_unidade_medida2">
-                        <?php
-                        foreach ($unidades as $unidade) {
-                            echo "<option value='" . $unidade['id_unidade_medida'] . "'>" . $unidade['unidade'] . "</option>";
-                        }
-                        ?>
-                    </select>
+                    <div class="container_alimentos">
+                        <div class="alimento">
+                            Alimento: <input type="text" value="" name="alimento[]" id="alimento" />
+                            Quantidade: <input type="text" value="" name="quantidade[]" id="quantidade"/>
+                            Unidade: <select id="id_unidade_medida" name="id_unidade_medida[]">
+                                <?php
+                                foreach ($unidades as $unidade) {
+                                    echo "<option value='" . $unidade['id_unidade_medida'] . "'>" . $unidade['unidade'] . "</option>";
+                                }
+                                ?>
+                            </select>&nbsp;<a id="btn_add_alimento" class="button" href="#"><img src="<?php echo base_url('application/assets/images/add.png'); ?>"/></a>
+                        </div>
+                    </div>
                 </fieldset><br>
                 <br><input type="submit" value="Salvar">
             </form>
