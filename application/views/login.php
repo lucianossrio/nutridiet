@@ -3,11 +3,11 @@
 	<meta charset="utf-8">
 	<title>Bem Vindo ao NutriDiet</title>
 
-	<link href="<? echo base_url('application/assets/css/login.css'); ?>" type="text/css" media="screen" rel="stylesheet"/>
+	<link href="<?php echo base_url('application/assets/css/login.css'); ?>" type="text/css" media="screen" rel="stylesheet"/>
 
-	<script src="<? echo base_url('application/assets/js/jquery-1.7.1.min.js'); ?>" type="text/javascript"></script>
-	<script src="<? echo base_url('application/assets/js/jquery.validate.js');?>" type="text/javascript"></script>
-	<script src="<? echo base_url('application/assets/js/login.js'); ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('application/assets/js/jquery-1.7.1.min.js'); ?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('application/assets/js/jquery.validate.js');?>" type="text/javascript"></script>
+	<script src="<?php echo base_url('application/assets/js/login.js'); ?>" type="text/javascript"></script>
 
 </head>
 <body>
