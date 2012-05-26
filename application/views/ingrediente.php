@@ -50,9 +50,15 @@
                         alert("Insira um alimento valido.");
                     }else{
                         var html = '<div class="alimento_' + qtd_alimentos + '">';
-                        html += '<input name="alimento[]" id="alimento_' + qtd_alimentos + '" type="text" value="" />';
+                        html += 'Alimento: <input name="alimento[]" id="alimento_' + qtd_alimentos + '" type="text" value="" />';
                         html += 'Quantidade: <input type="text" value="" name="quantidade[]" id="quantidade_' + qtd_alimentos + '"/>';
-                        html += 'Unidade: <select name="id_unidade_medida[]" id="id_unidade_medida_' + qtd_alimentos + '">'
+                        html += 'Unidade: <select name="id_unidade_medida[]" id="id_unidade_medida_' + qtd_alimentos + '">';
+                        <?php
+                            foreach ($unidades as $unidade) {
+                                echo "html += '<option value=\"" . $unidade['id_unidade_medida'] . "\">" . $unidade['unidade'] . "</option>'; \n";
+                            }
+                        ?>
+                        html += '</select>';
                         html += '<a id="alimento_' + qtd_alimentos + '" class="remove" href="#"><img src="<?php echo base_url('application/assets/images/remove.png'); ?>"/></a>';
                         html += '</div>';
                         $('#container_alimentos').append(html);
@@ -75,7 +81,7 @@
                 Data: <input type="text" value="" name="data" id="data"/>
                 <br>Ingredientes:<br>
                 <fieldset border="1">
-                    <div class="container_alimentos">
+                    <div id="container_alimentos">
                         <div class="alimento">
                             Alimento: <input type="text" value="" name="alimento[]" id="alimento" />
                             Quantidade: <input type="text" value="" name="quantidade[]" id="quantidade"/>
